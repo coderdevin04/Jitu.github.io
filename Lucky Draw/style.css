@@ -1,0 +1,277 @@
+/* === Base Styles === */
+:root {
+    --bg-dark: #0a0a12;
+    --neon-cyan: #00f3ff;
+    --neon-pink: #ff00ff;
+    --accent-purple: #7024f4;
+    --text-primary: #e0e0ff;
+    --glass-bg: rgba(15, 15, 35, 0.8);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* === Header Styles === */
+  .main-header {
+    background: linear-gradient(135deg, var(--neon-cyan), var(--accent-purple));
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .main-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+      transparent 0%,
+      rgba(255,255,255,0.1) 50%,
+      transparent 100%);
+    animation: glow-pulse 4s infinite;
+  }
+  
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+  }
+  
+  .header-content h1 {
+    font-size: 2.5rem;
+    text-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* === Form Styles === */
+  .draw-form {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(112, 36, 244, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    box-shadow: 0 0 30px rgba(112, 36, 244, 0.2);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px 20px;
+    background: rgba(20, 20, 40, 0.8);
+    border: 1px solid var(--accent-purple);
+    border-radius: 8px;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+  }
+  
+  /* === Payment Methods === */
+  .payment-methods {
+    border: 1px solid rgba(112, 36, 244, 0.3);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .payment-option:hover {
+    background: rgba(112, 36, 244, 0.1);
+  }
+  
+  /* === Button Styles === */
+  .cta-button {
+    background: linear-gradient(45deg, var(--neon-cyan), var(--accent-purple));
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+      transparent 25%,
+      rgba(255,255,255,0.1) 50%,
+      transparent 75%);
+    transform: rotate(45deg);
+    animation: button-glow 3s infinite linear;
+  }
+  
+  @keyframes button-glow {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+  }
+  
+  /* === Prize Cards === */
+  .prize-card {
+    background: var(--glass-bg);
+    border-radius: 15px;
+    padding: 1.5rem;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  .prize-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .prize-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: 1px solid transparent;
+    background: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink)) border-box;
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) padding-box, 
+       linear-gradient(#fff 0 0);
+    mask: 
+       linear-gradient(#fff 0 0) padding-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+  
+  .prize-card:hover::after {
+    opacity: 1;
+  }
+  
+  /* === Countdown Timer === */
+  .timer-box {
+    background: rgba(20, 20, 40, 0.6);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 0 1rem;
+    position: relative;
+  }
+  
+  .timer-box span:first-child {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  /* === FAQ Section === */
+  .faq-item {
+    background: var(--glass-bg);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .faq-item summary {
+    padding: 1rem;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+  
+  /* === Responsive Design === */
+  @media (max-width: 768px) {
+    .header-content h1 {
+      font-size: 2rem;
+    }
+  
+    .prizes-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .timer-box {
+      margin: 0.5rem;
+      padding: 0.8rem 1.2rem;
+    }
+  }
+  
+  /* === Particle Background Effect === */
+  .particle {
+    position: fixed;
+    background: rgba(112, 36, 244, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  
+  @keyframes confetti-fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+  }
+
+  .error-message, .success-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  .error-message { background: #ff4444; }
+  .success-message { background: #00c851; }
+
+  @keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
