@@ -1,0 +1,43 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+#flexbox {
+    height: 500px;
+    width: 800px;
+    display: flex;
+    border: 2px solid black;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: end;
+}
+
+#box1 {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+}
+
+#box2 {
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    align-self: last baseline;
+}
+
+#box3 {
+    height: 100px;
+    width: 100px;
+    background-color: green;
+    align-self: center;
+}
+
+#box4 {
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    align-self: flex-end;
+}

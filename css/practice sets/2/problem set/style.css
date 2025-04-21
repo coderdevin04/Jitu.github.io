@@ -1,0 +1,26 @@
+* {
+    padding: 0px;
+}
+a
+{
+    text-decoration: none;
+}
+#navbar
+{
+    background-color: #8d8d8d;
+    height : 30px;
+    
+}
+#list
+{
+    height: 30px;
+    display: flex;
+   justify-content: end ;
+   padding: 0px 10px 0px 10px;
+    flex-direction: row;
+    align-items: center;
+}
+
+li {
+    margin: 0px 20px 0px 20px;
+}
