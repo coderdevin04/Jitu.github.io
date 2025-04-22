@@ -4,6 +4,7 @@
 }
 
 #flexbox {
+    margin: 0 auto;
     height: 500px;
     width: 800px;
     display: flex;
