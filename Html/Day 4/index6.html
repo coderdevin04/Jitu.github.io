@@ -1,13 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio architecto ad error consectetur quo vitae fugit maxime eum dicta quis.">
-    <title></title>
+  <meta charset="UTF-8">
+  <title>Viewport % Calculator (Smart)</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #eef2f7;
+    }
+    label, select {
+      display: block;
+      margin-top: 1rem;
+    }
+    input {
+      padding: 8px;
+      width: 200px;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: #222;
+    }
+    .my-div {
+      width: 100vw;
+      height: 100vh;
+      background-image: url(amazon_logo.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
 </head>
 <body>
-    <h1> Devin</h1>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio architecto ad error consectetur quo vitae fugit maxime eum dicta quis.
+
+  <h2>🎯 Viewport % Calculator</h2>
+
+  <label for="mode">Choose what to calculate % for:</label>
+  <select id="mode">
+    <option value="width">Width</option>
+    <option value="height">Height</option>
+  </select>
+
+  <label id="elementLabel">Element Width (px):</label>
+  <input type="number" id="elementSize" placeholder="e.g. 300">
+
+  <button onclick="calculate()">Calculate</button>
+
+  <div class="result" id="output"></div>
+
+  <script>
+    const modeSelector = document.getElementById("mode");
+    const label = document.getElementById("elementLabel");
+
+    // Change label based on selection
+    modeSelector.addEventListener("change", () => {
+      label.textContent = modeSelector.value === "width"
+        ? "Element Width (px):"
+        : "Element Height (px):";
+    });
+
+    function calculate() {
+      const mode = document.getElementById("mode").value;
+      const size = parseFloat(document.getElementById("elementSize").value);
+
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+
+      let percent;
+
+      if (mode === "width") {
+        percent = (size / viewportWidth) * 100;
+      } else {
+        percent = (size / viewportHeight) * 100;
+      }
+
+      document.getElementById("output").innerHTML = `
+        📐 Viewport ${mode}: ${mode === "width" ? viewportWidth : viewportHeight}px <br>
+        📊 Element ${mode}: ${size}px <br>
+        ✅ Element covers <strong>${percent.toFixed(2)}%</strong> of viewport ${mode}.
+      `;
+    }
+  </script>
+  <div class="my-div"></div>
+
 </body>
 </html>

@@ -6,7 +6,7 @@
 }
 
 .navbar {
-    height: 60px;
+    height: 6.61vh;
     color: white;
     background-color: #131921;
     display: flex;
@@ -14,16 +14,20 @@
 }
 
 .nav-logo {
-    height: 50px;
-    width: 114px;
+    height: 5.51vh;
+    width: 8.91vw;
+    display: flex;
+    align-items: center;
 }
 
 
 .logo {
     background-image: url(amazon_logo.png);
-    height: 50px;
-    background-size: cover;
-    width: 100%;
+    height: 5.51vh;
+    background-size:contain;
+    background-repeat: no-repeat;
+    width: 8.91vw;
+    align-self: center;
 }
 
 .border {
@@ -34,9 +38,10 @@
     border: 2px solid white;
 }
 .nav-add-main{
-    height: 50px;
+    height: 5.51vh;
     display: flex;
     align-items: center;
+    width: 10vw;
     
 }
 .nav-add{
@@ -55,7 +60,7 @@
      font-weight: 700;
 }
 .nav-search{
-    height: 50px;
+    height: 5.51vh;
     width: 50vw;
     display: flex;
     align-items: center;
@@ -77,14 +82,17 @@
     height: 100%;
     border: none;
 }
-.search-btn{
+.search-input:focus
+{
+    border: none;
+}
+.search-btn-div{
     width: 8%;
     height: 100%;
     background-color: #ffbe69;
-    align-content: center;
-}
-.search-btn-div{
+    align-items: center;
     display: flex;
     justify-content: center;
-    
+    color: black;
 }
+
